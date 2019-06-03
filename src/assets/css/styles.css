@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+.r-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.r-column{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+
+}
+
+.r-double-column{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+
+}
+.r-triple-column{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+
+}
+.r-blue-column {
+  background-color: blue;
+  height: 100px;
+}
+
+.r-green-column {
+  background-color: green;
+  height: 100px;
+}
+
+.r-orange-column {
+  background-color: orange;
+  height: 100px;
+}
+.home{
+
+}
+
+@media screen and (min-width: 800px) {
+  .r-column{
+    flex: 1;
+  }
+  .r-double-column{
+    flex: 2;
+  }
+  .r-triple-column{
+    flex: 4;
+  }
+}

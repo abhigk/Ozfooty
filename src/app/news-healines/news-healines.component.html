@@ -1,0 +1,9 @@
+<div class="card pl-2">
+  <div class = "card-header card-header-danger">
+    <h5 class = "card-title">Top News Stories</h5>
+  </div>
+  <div class="list-group">
+    <div  class = "list-group-item list-group-item-odd" *ngFor="let n of news | slice:0:5; let o = odd ; let e = even;"
+        [ngClass]="{odd: o, even: e}">&#9642; {{ n  | slice:(n.indexOf(':')+1):n.lastIndexOf('-')}}</div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="card">
+  <div class = "card-header card-header-danger">
+    <h5 class = "card-title">Player Ratings: Top Ten</h5>
+
+  </div>
+  <!-- <div class="container"> -->
+
+    <div class="table-responsive">
+      <table class="table">
+          <thead class = "table-head">
+              <th>Player</th>
+              <th>Points</th>
+            </thead>
+        <tbody *ngFor="let player of players ; let o = odd ; let e = even;"
+               [ngClass]="{odd: o, even: e}" >
+
+        <tr>
+          <td>{{player.name}}</td>
+          <td>{{player.pts}}</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+<div style="font-size: 0.5rem;">Last updated:{{this.lastUpdated}}</div>
+
+</div>

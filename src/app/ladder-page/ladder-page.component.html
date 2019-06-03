@@ -1,0 +1,75 @@
+
+<div class = "ladder">
+  <div class = "card pl-2">
+   <div class = "r-row">
+     <div class = "r-column">
+     <div class = "card-header card-header-danger">
+        <h5 class = "card-title">Ladder</h5>
+       <p class = "card-category">2019 Toyota AFL Premiership Season</p>
+     </div>
+
+     <div class ="card-body">
+       <!-- <div  class = "col-md-3">
+         <ngx-select-dropdown [options]="options" [config]="config"></ngx-select-dropdown>
+       </div> -->
+
+<!--       add table code here-->
+       <div class=""table-responsive>
+         <table class="table">
+           <thead class="text-primary">
+              <th>Team</th>
+
+           <th>P</th>
+           <th>W</th>
+           <th>L</th>
+           <th>%</th>
+           <th>SF</th>
+
+           </thead>
+           <tbody *ngFor="let item of ladder; let o = odd ; let e = even;"
+           [ngClass]="{odd: o, even: e}" >
+           <tr>
+             <td>{{item.rank}}. {{ item.team }}</td>
+
+             <td>{{item.played}}</td>
+             <td>{{ item.won }}</td>
+             <td>{{ item.lost }}</td>
+             <td>{{item.percentage}}</td>
+             <td >
+               <div class="r-row">
+                 <div *ngFor="let c of item.form" >
+                 <div [ngClass]="(c === 'W')?'letter-w':'letter-l'" >{{c}}</div>
+                 </div>
+               </div>
+
+
+             </td>
+           </tr>
+           </tbody>
+
+         </table>
+       </div>
+
+     </div>
+       </div>
+   </div>  
+
+    <p >Standing are updated with the completion of each game</p>
+    <hr class="mb-1">
+    <h6>GLOSSARY</h6>
+    <h6>PTS: <span>Points</span></h6>
+    <h6>P: <span>Points</span></h6>
+    <h6>W: <span>Points</span></h6>
+    <h6>L: <span>Points</span></h6>
+    <h6>D: <span>Points</span></h6>
+    <h6>F: <span>Points</span></h6>
+    <h6>A: <span>Points</span></h6>
+    <h6>%: <span>Points</span></h6>
+    <h6>STRK: <span>Points</span></h6>
+    <h6>SF: <span>Points</span></h6>
+
+  </div>
+
+
+</div>
+

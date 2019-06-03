@@ -1,0 +1,258 @@
+<!--<div class="card">-->
+
+<!--&lt;!&ndash;Dropdowns&ndash;&gt;-->
+<!--<div class="d-sm-flex p-3">-->
+<!--<div class="p-1 flex-fill">-->
+<!--<div class="col-md-6">-->
+<!--<ngx-select-dropdown  [multiple]="false" [(ngModel)]="myTeamSelect"  [options]="options" [config]="config"    ></ngx-select-dropdown>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="p-1 flex-fill">-->
+<!--<div class="col-md-6">-->
+<!--<ngx-select-dropdown  [multiple]="false" [(ngModel)]="myTeamSelect"  [options]="options" [config]="config"    ></ngx-select-dropdown>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Team vd images&ndash;&gt;-->
+
+
+<!--</div>-->
+
+<div class="head-on-head">
+  <div class="card pl-2">
+    <div class="r-row">
+      <div class="r-column">
+        <div class = "card-header card-header-danger">
+          <h5 class = "card-title">Results</h5>
+          <p class = "card-category">Games and results for team in this season</p>
+        </div>
+
+        <div class="card-body">
+          <div class="r-row">
+            <div class="r-column">
+              <div  class = "col-md-6">
+                <ngx-select-dropdown  [multiple]="false" [(ngModel)]="myTeamSelect" (change)="myChange($event)" [options]="options" [config]="config"></ngx-select-dropdown>
+              </div>
+              <!--<div class="r-column logo" *ngIf="teamOne">-->
+                <!--<img src='assets/img/team-logo/{{teamOne.name}}.jpg'>-->
+              <!--</div>-->
+            </div>
+            <div class="r-column">
+              <div  class = "go-button">
+                <button type="button" class="btn btn-primary" (click)="headToHead()">Go</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="card pl-2" *ngIf="gameResults.length>0">-->
+    <!--<div class="row title-card">-->
+      <!--<div class="col">-->
+        <!--Summary-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="card-body">-->
+        <!--<div class="col">-->
+          <!--{{teamOne.name}} has winning chance of {{winPercentage}} %.-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</div>-->
+  <!-- each match tile  -->
+  <div class="card game-card" id = "game" *ngFor="let game of gameResults">
+    <div class="match-tile">
+      <div class="r-row">
+        <div class="r-column  team-logo ">
+
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+          <div>{{game.hteam}}</div>
+        </div>
+        <div class="r-column align-items-center align-self-center">
+          <div class="score">
+            {{game.hscore}}
+          </div>
+        </div>
+        <div class="r-double-column match-details">
+          <div class="r-row game-location-header">
+            Winner: {{game.winner}}
+          </div>
+          <div class="r-row game-time-header">
+            {{game.date | date}}
+          </div>
+          <div class="r-row game-location-header">
+            <i class="fas fa-map-marker-alt"></i>
+            {{game.venue}}
+          </div>
+        </div>
+        <div class="r-column align-items-center align-self-center">
+          <div class="score">{{game.ascore}}</div>
+        </div>
+        <div class="r-column  team-logo ">
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+          <div>{{game.ateam}}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- end of mach tile -->
+  <div class="card game-card" id="game-small-screen" *ngFor="let game of gameResults | slice:0:3">
+    <div class="match-tile">
+      <div style="display:flex; flex-direction: row;">
+        <div class="r-column  team-logo ">
+
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+          <div>{{game.hteam}}</div>
+        </div>
+        <div class="r-column  team-logo ">
+
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+          <div>{{game.ateam}}</div>
+        </div>
+      </div>
+      <div class="r-row">
+        <div class="r-double-column match-details">
+          <div class="r-row game-location-header">
+            Winner: {{game.winner}}
+          </div>
+          <div class="r-row game-time-header">
+            {{game.date | date}}
+          </div>
+          <div class="r-row game-location-header">
+            {{game.venue}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="card pl-2" *ngIf="gameResults.length>0">-->
+    <!--<div class="row title-card">-->
+      <!--<div class="col">-->
+        <!--Results-->
+      <!--</div>-->
+      <!--<div class="col-md-12">-->
+        <!--<div class="table-responsive">-->
+          <!--<table class="table table-responsive-md table-striped">-->
+            <!--<thead>-->
+            <!--<tr>-->
+              <!--<th scope="col">Date</th>-->
+              <!--<th scope="col">Home Team</th>-->
+              <!--<th scope="col">Away Team</th>-->
+              <!--<th scope="col">Home Team Score</th>-->
+              <!--<th scope="col">Away Team Score</th>-->
+              <!--<th scope="col">Home Team Goals</th>-->
+              <!--<th scope="col">Away Team Goals</th>-->
+              <!--<th scope="col">Winner</th>-->
+              <!--<th scope="col">Venue</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr *ngFor="let game of gameResults;">-->
+              <!--<td>-->
+                <!--{{ game.date | date }}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.hteam }}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.ateam }}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.hscore != '0' ? game.hscore : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.ascore != '0' ? game.ascore : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.hgoals != '0' ? game.hgoals : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.agoals != '0' ? game.agoals : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.winner != null ? game.winner : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.venue }}-->
+              <!--</td>-->
+              <!--&lt;!&ndash;<td>{{ country.area | number }}</td>&ndash;&gt;-->
+              <!--&lt;!&ndash;<td>{{ country.population | number }}</td>&ndash;&gt;-->
+            <!--</tr>-->
+            <!--</tbody>-->
+          <!--</table>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="card pl-2" *ngIf="upcomingResults.length>0">-->
+    <!--<div class="row title-card">-->
+      <!--<div class="col">-->
+        <!--Upcomming Game-->
+      <!--</div>-->
+      <!--<div class="col-md-12">-->
+        <!--<div class="table-responsive">-->
+          <!--<table class="table table-responsive-md table-striped">-->
+            <!--<thead>-->
+            <!--<tr>-->
+              <!--<th scope="col">Date</th>-->
+              <!--<th scope="col">Home Team</th>-->
+              <!--<th scope="col">Away Team</th>-->
+              <!--<th scope="col">Home Team Score</th>-->
+              <!--<th scope="col">Away Team Score</th>-->
+              <!--<th scope="col">Home Team Goals</th>-->
+              <!--<th scope="col">Away Team Goals</th>-->
+              <!--<th scope="col">Winner</th>-->
+              <!--<th scope="col">Venue</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr *ngFor="let game of upcomingResults;">-->
+              <!--<td>-->
+                <!--{{ game.date | date }}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.hteam }}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.ateam }}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.hscore != '0' ? game.hscore : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.ascore != '0' ? game.ascore : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.hgoals != '0' ? game.hgoals : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.agoals != '0' ? game.agoals : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.winner != null ? game.winner : 'NA'}}-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--{{ game.venue }}-->
+              <!--</td>-->
+              <!--&lt;!&ndash;<td>{{ country.area | number }}</td>&ndash;&gt;-->
+              <!--&lt;!&ndash;<td>{{ country.population | number }}</td>&ndash;&gt;-->
+            <!--</tr>-->
+            <!--</tbody>-->
+          <!--</table>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+
+
+</div>

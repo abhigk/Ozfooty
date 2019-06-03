@@ -1,0 +1,176 @@
+<div class = "ladder">
+  <div class = "card pl-2">
+    <div class = "r-row">
+      <div class="r-column">
+      <div class = "card-header card-header-danger">
+        <h5 class = "card-title">Fixtures</h5>
+      </div>
+
+      <div class ="card-body">
+        <div class="r-row">
+          <div class="col-md-3">
+            <ngx-select-dropdown [options]="teamOptions" [(ngModel)]="myTeamSelect" [config]="teamConfig"></ngx-select-dropdown>
+          </div>
+        <!--<div class="select-year">-->
+        <!--<ngx-select-dropdown [options]="yearOptions" [(ngModel)]="yearSelect"[config]="yearConfig"></ngx-select-dropdown>-->
+        <!--</div>-->
+        <div class="col-md-3">
+        <ngx-select-dropdown [options]="roundOptions" [(ngModel)]="roundSelect" [config]="roundConfig"></ngx-select-dropdown>
+        </div>
+
+          <div class="col-md-3">
+            <button type="button" class="btn btn-primary" (click)="result()">Go</button>
+          </div>
+
+        </div>
+        <!--game results-->
+
+        <!-- each match tile  -->
+          <div class="r-row" *ngIf="hasSearched && gameResults.length==0">
+            <div class="r-column pl-2">
+              No data is available.
+            </div>
+          </div>
+
+
+
+
+
+        <!-- each match tile  -->
+        <div class="game-display" *ngFor="let d of sortedDateArray">
+          <div class="game-date">{{d | date}}</div>
+
+          <div class="display-card" *ngFor="let game of gameResults">
+
+        <div class="card game-card" id = "game" *ngIf='d === game.date.slice(0,10)' >
+          <div class="match-tile" >
+            <div class="r-row">
+              <div class="r-column  team-logo ">
+
+                <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                <div>{{game.hteam}}</div>
+              </div>
+              <div class="r-double-column match-details">
+                <div class="r-row game-time-header">
+                  <div class="r-column">
+                    <div class="d-flex justify-content-start">
+                      {{game.hconfidence}} %
+                    </div>
+                  </div>
+                  <div class="r-double-column">
+                    <div class="d-flex justify-content-center">
+                      Win percentage of both teams
+                    </div>
+                  </div>
+                  <div class="r-column">
+                    <div class="d-flex justify-content-end">
+                    {{100 - game.hconfidence | number : '2.2-2'}} %
+                    </div>
+                  </div>
+                </div>
+                <div class="r-row game-location-header">
+                  {{game.venue}}
+                </div>
+              </div>
+              <div class="r-column  team-logo ">
+
+                <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                <div>{{game.ateam}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+
+          <div class="display-card" *ngFor="let game of gameResults">
+          <div class="card game-card" id="game-small-screen" *ngIf='d === game.date.slice(0,10)'>
+            <div class="match-tile">
+              <div style="display:flex; flex-direction: row;">
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                  <div>{{game.hteam}}</div>
+                </div>
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                  <div>{{game.ateam}}</div>
+                </div>
+              </div>
+              <div class="r-row">
+                <div class="r-double-column match-details">
+                  <div class="r-row game-time-header">
+                    {{game.hconfidence}}% Win percentage of both teams {{100 - game.hconfidence | number : '2.2-2'}}%
+                  </div>
+                  <div class="r-row game-location-header">
+                    {{game.venue}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+      </div>
+        <!-- end of mach tile -->
+
+
+
+
+        <!--Start of original display card-->
+      <!--<div class="game-display" *ngFor="let d of sortedDateArray">-->
+        <!--<div class="game-date">{{d | date}}</div>-->
+        <!--<div class="display-card" *ngFor="let game of gameResults">-->
+        <!--<div class="game-display-card card pl-2" *ngIf='d === game.date.slice(0,10)'>-->
+          <!--<div class="r-row">-->
+            <!--<div class="r-column" >-->
+              <!--<div class="inner-content">-->
+              <!--<img src='assets/img/team-logo/{{game.hteam}}.jpg'>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="r-double-column">-->
+              <!--<div class="inner-content location">-->
+                <!--<div class="time ">{{game.date | date:'HH:mm'}}</div>-->
+                <!--<i class="fas fa-map-marker-alt"></i>-->
+                <!--{{game.venue}}-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="r-column">-->
+              <!--<div class="inner-content">-->
+              <!--<img src='assets/img/team-logo/{{game.ateam}}.jpg'>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--</div>-->
+            <!--<div class="r-double-column">-->
+              <!--<div class="inner-content">-->
+                   <!--<div class="r-row">-->
+                     <!--<div class="r-double-column">-->
+                       <!--{{game.hteam}}-->
+                     <!--</div>-->
+                     <!--<div class="r-column">-->
+                       <!--{{game.hconfidence}}%-->
+                     <!--</div>-->
+                   <!--</div>-->
+                    <!--<div class="r-row">-->
+                      <!--<div class="r-double-column">-->
+                       <!--{{game.ateam}}-->
+                      <!--</div>-->
+                      <!--<div class="r-column">-->
+                        <!--{{100 - game.hconfidence | number : '2.2-2'}}%-->
+                      <!--</div>-->
+                    <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--End display card-->
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+

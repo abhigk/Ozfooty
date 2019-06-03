@@ -1,0 +1,262 @@
+.r-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.r-column{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+
+}
+
+.r-double-column{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+
+}
+.r-triple-column{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+
+}
+.r-blue-column {
+  background-color: blue;
+  height: 100px;
+}
+
+.r-green-column {
+  background-color: green;
+  height: 100px;
+}
+
+.r-orange-column {
+  background-color: orange;
+  height: 100px;
+}
+.home{
+
+}
+
+@media screen and (min-width: 800px) {
+  .r-column{
+    flex: 1;
+  }
+  .r-double-column{
+    flex: 2;
+  }
+  .r-triple-column{
+    flex: 4;
+  }
+}
+
+/*img{*/
+  /*height: 80px;*/
+  /*width: 80px;*/
+/*}*/
+.inner-content{
+  padding: 1vw;
+}
+.game-display-card{
+  width: 50vw;
+
+}
+.location{
+  color: #222D5A;
+  font-weight: 600;
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.2vw;
+
+  padding: 1vw;
+}
+.game-date{
+  color: #222D5A;
+  font-weight: 600;
+  text-decoration: none;
+  outline: none;
+  font-size: 1.5vw;
+}
+.time{
+  background-color: #f0f3f8;
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: #222D5A;
+}
+h2 {
+  color: #111;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0 0 24px;
+  padding: 0 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.card-header-danger{
+  background: #222D5A;
+}
+.score{
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+.line-fix{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+}
+.select-year{
+  width: 15vw;
+}
+/* media queries */
+@media only screen and (max-width:768px)
+{
+
+  .card-body
+  {
+    padding: 10px 15px;
+  }
+
+}
+/* for small screen devices */
+@media screen and (max-width: 800px) {
+  div#game { display: none }
+  .team-logo
+  {
+
+    height: 5rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+/* for medium and large screen devices */
+@media screen and (min-width: 800px) {
+  div#game-small-screen { display: none }
+
+
+
+}
+.match-details
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #222D5A;
+  font-weight: 600;
+  text-decoration: none;
+  outline: none;
+  /*display: inline-block;*/
+  text-align: center;
+  font-size: 1.2rem;
+}
+.game-card
+{
+  margin: 5px;
+}
+.team-logo
+{
+  height: 5rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.game-time-header
+{
+  background-color: #F0F3F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game-location-header{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.card-title
+{
+  font-size:1rem;
+}
+
+.match-tile{
+  overflow: hidden;
+
+  margin: 3px;
+}
+
+.btn-primary
+{
+  font-size:0.7rem;
+}
+.nearby {
+  margin: 1vw;
+}
+
+.letter-w{
+  vertical-align: center;
+  margin-left: 0.1em;
+  background: #4EA431;
+  color: white;
+  width: 1.25rem;
+  height: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.25rem;
+  border-radius: 3px;
+}
+.letter-l{
+  vertical-align: center;
+  margin-left: 0.1em;
+  background: red;
+  color: white;
+  width: 1.25rem;
+  height: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.25rem;
+  border-radius: 3px;
+}
+
+
+h2 {
+  color: #111;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0 0 24px;
+  padding: 0 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.card-header-danger{
+  background: #222D5A;
+}
+.select-year{
+  width: 10vw;
+}
+
+
+.even{
+  background-color: #dadff1;
+}
+
+.score{
+  font-size: 2vw;
+  font-weight: bold;
+}

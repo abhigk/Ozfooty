@@ -1,0 +1,14 @@
+h2 {
+  color: #111;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0 0 24px;
+  padding: 0 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.card-header-danger{
+  background: #222D5A;
+}

@@ -1,0 +1,200 @@
+
+<div class = "r-row">
+    <!--  recent matches or live scores and upcoming matches-->
+
+      <div class = "r-double-column pl-2" style="padding-right: 8px;">
+        <div class="card">
+          <div class = "card-header card-header-danger">
+            <h5 class = "card-title">Recent Games</h5>
+          </div>
+          <!-- each match tile  -->
+          <div class="card game-card" id = "game" *ngFor="let game of gameResults | slice:0:3">
+            <div class="match-tile">
+              <div class="r-row">
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                  <div>{{game.hteam}}</div>
+                </div>
+                <div class="r-column align-items-center align-self-center">
+                  <div class="score">
+                    {{game.hscore}}
+                  </div>
+                </div>
+                <div class="r-double-column match-details">
+                  <div class="r-row game-location-header">
+                    Winner: {{game.winner}}
+                  </div>
+                  <div class="r-row game-time-header">
+                    {{game.date | date}}
+                  </div>
+                  <div class="r-row game-location-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{game.venue}}
+                  </div>
+                </div>
+                <div class="r-column align-items-center align-self-center">
+                  <div class="score">{{game.ascore}}</div>
+                </div>
+                <div class="r-column  team-logo ">
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                  <div>{{game.ateam}}</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- end of mach tile -->
+          <div class="card game-card" id="game-small-screen" *ngFor="let game of gameResults | slice:0:3">
+            <div class="match-tile">
+              <div style="display:flex; flex-direction: row;">
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                  <div>{{game.hteam}}</div>
+                </div>
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                  <div>{{game.ateam}}</div>
+                </div>
+              </div>
+              <div class="r-row">
+                <div class="r-double-column match-details">
+                  <div class="r-row game-location-header">
+                      Winner: {{game.winner}}
+                  </div>
+                  <div class="r-row game-time-header">
+                    {{game.date | date}}
+                  </div>
+                  <div class="r-row game-location-header">
+                    {{game.venue}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card pl-3">
+          <div class = "card-header card-header-danger">
+            <h5 class = "card-title">Upcoming Games</h5>
+          </div>
+          <div class="card game-card" id = "game" *ngFor="let game of gameUpcoming | slice:0:5">
+            <div class="match-tile">
+              <div class="r-row">
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                  <div>{{game.hteam}}</div>
+                </div>
+                <div class="r-double-column match-details">
+                  <div class="r-row game-time-header">
+                    {{game.date | date}}
+                  </div>
+                  <div class="r-row game-location-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{game.venue}}
+                  </div>
+                </div>
+                <div class="r-column  team-logo ">
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                  <div>{{game.ateam}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card game-card" id="game-small-screen" *ngFor="let game of gameUpcoming | slice:0:3">
+            <div class="match-tile">
+              <div style="display:flex; flex-direction: row;">
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                  <div>{{game.hteam}}</div>
+                </div>
+                <div class="r-column  team-logo ">
+
+                  <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                  <div>{{game.ateam}}</div>
+                </div>
+              </div>
+              <div class="r-row">
+                <div class="r-double-column match-details">
+                  <div class="r-row game-time-header">
+                    {{game.date | date}}
+                  </div>
+                  <div class="r-row game-location-header">
+                    {{game.venue}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="card pl-3">-->
+          <!--<div class = "card-header card-header-danger">-->
+            <!--<h5 class = "card-title">Upcoming Games</h5>-->
+          <!--</div>-->
+          <!--<div class="game-display">-->
+            <!--<div class="display-card" *ngFor="let game of gameUpcoming | slice:0:3;">-->
+              <!--<div class="game-display-card card pl-2">-->
+                <!--<div class="r-row">-->
+                  <!--<div class="r-column align-self-center" >-->
+                    <!--<div class="inner-content">-->
+                      <!--<img src='assets/img/team-logo/{{game.hteam}}.jpg'>-->
+                      <!--<div class="line-fix d-flex">{{game.hteam}}</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="r-double-column align-self-center">-->
+                    <!--<div class="inner-content location" style="margin-top: 8%;">-->
+                      <!--<div class="time ">{{game.date | date}}</div>-->
+                      <!--<i class="fas fa-map-marker-alt"></i>-->
+                      <!--{{game.venue}}-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="r-column align-self-center">-->
+                    <!--<div class="inner-content justify-content-center">-->
+                      <!--<img src='assets/img/team-logo/{{game.ateam}}.jpg'>-->
+                      <!--<div class="line-fix d-flex">{{game.ateam}}</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--<div *ngFor="let tip of gameTips">-->
+                    <!--<div  *ngIf="game.id == tip.gameid">-->
+                      <!--<div class="r-double-column">-->
+                        <!--<div class="inner-content"  style="margin-top: 8%;">-->
+                          <!--<div class="r-row">-->
+                            <!--<div class="r-double-column">-->
+                              <!--{{game.hteam}}-->
+                            <!--</div>-->
+                            <!--<div class="r-column">-->
+                              <!--{{tip.hconfidence}}%-->
+                            <!--</div>-->
+                          <!--</div>-->
+                          <!--<div class="r-row">-->
+                            <!--<div class="r-double-column ">-->
+                              <!--{{game.ateam}}-->
+                            <!--</div>-->
+                            <!--<div class="r-column">-->
+                              <!--{{tip.confidence}}%-->
+                            <!--</div>-->
+                          <!--</div>-->
+
+                        <!--</div>-->
+                      <!--</div>-->
+
+                    <!--</div>-->
+                  <!--</div>-->
+
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      </div>
+    <!--  Ladder of team-->
+      <div class = "r-column ">
+        <app-ladder></app-ladder>
+      </div>
+    </div>
+

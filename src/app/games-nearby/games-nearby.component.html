@@ -1,0 +1,115 @@
+<div class="nearby">
+  <div class="card pl-2">
+    <div class="r-row">
+      <div class="r-column">
+        <div class="card-header card-header-danger">
+          <h5 class="card-title">Games Near You</h5>
+        </div>
+
+        <!--         start of card body-->
+        <div class="card-body">
+          <div class="r-row">
+            <div class="r-column col-md-4">
+              <input (keyup.enter)="getNearByMatches()" type="text" [(ngModel)]="this.postcode" class="form-control" id="postcode" placeholder="Enter the postcode to search the games">
+            </div>
+            <div class="r-column col-md-1">
+              <button (click)="getNearByMatches()" class="btn btn-primary">Go</button>
+            </div>
+
+          </div>
+
+
+        </div>
+        <!--         end of card body-->
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card pl-2" *ngIf = "this.hasSearched">
+   <h5 *ngIf="this.hasSearched && this.games.length == 0;" style="margin: 10px 10px;">
+          Currently no games near your postcode or you may have entered invalid postcode!
+      </h5>
+  
+    <div class="r-row">
+      <div class="r-column">
+
+
+        <!--         start of card body-->
+        <div class="card-body">
+          <div class="r-row">
+            <div class="r-column">
+              
+
+                <!-- each match tile  -->
+              <div class="card game-card" id = "game" *ngFor="let game of games">
+                <div class="match-tile">
+                  <div class="r-row">
+                    <div class="r-column  team-logo ">
+
+                      <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                      <div>{{game.hteam}}</div>
+                    </div>
+                    <div class="r-double-column match-details">
+                      <div class="r-row game-time-header">
+                        {{game.date | date: 'fullDate'}}
+                      </div>
+                      <div class="r-row game-location-header">
+                        {{game.venue}}
+                      </div>
+                    </div>
+                    <div class="r-column  team-logo ">
+
+                        <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                        <div>{{game.ateam}}</div>
+                      </div>
+
+                  </div>
+                </div>
+
+              </div>
+              <!-- end of mach tile -->
+
+              <div class="card game-card" id="game-small-screen" *ngFor="let game of games">
+                  <div class="match-tile">
+                   <div style="display:flex; flex-direction: row;">
+                      <div class="r-column  team-logo ">
+
+                          <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+                          <div>{{game.hteam}}</div>
+                        </div>
+                        <div class="r-column  team-logo ">
+
+                            <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                            <div>{{game.ateam}}</div>
+                          </div>
+                   </div>
+                     <div class="r-row">
+                        <div class="r-double-column match-details">
+                            <div class="r-row game-time-header">
+                             {{game.date}}
+                            </div>
+                            <div class="r-row game-location-header">
+                              {{game.venue}}
+                            </div>
+                          </div>
+                     </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!--         end of card body-->
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<!--end of main container-->

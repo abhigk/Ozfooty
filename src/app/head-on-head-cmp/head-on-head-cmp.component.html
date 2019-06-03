@@ -1,0 +1,140 @@
+
+
+<div class="head-on-head">
+  <div class="card pl-2">
+    <div class="r-row">
+      <div class="r-column">
+        <div class = "card-header card-header-danger">
+          <h5 class = "card-title">Head on Head</h5>
+          <p class = "card-category">Team comparision</p>
+        </div>
+
+        <div class="card-body">
+          <div class="r-row">
+          <div class="r-column">
+            <div  class = "col-md-9">
+              Team 1:
+              <ngx-select-dropdown  [multiple]="false" [(ngModel)]="myTeamSelect" (change)="myChange($event)" [options]="options" [config]="config"></ngx-select-dropdown>
+            </div>
+            <div class="r-column logo" *ngIf="teamOne">
+             <!-- <img src='assets/img/team-logo/{{teamOne.name}}.jpg'> -->
+            </div>
+          </div>
+          <div class="r-column">
+            <div  class = "col-md-9">
+              Team 2:
+              <ngx-select-dropdown  [multiple]="false" [(ngModel)]="rivalTeamSelect" (change)="myChangeTwo($event)" [options]="options" [config]="config"    ></ngx-select-dropdown>
+            </div>
+            <div class="r-column logo" *ngIf="teamTwo">
+              <!-- <img src='assets/img/team-logo/{{teamTwo.name}}.jpg'> -->
+            </div>
+          </div>
+            <div class="r-column">
+              <div  class = "go-button">
+              <button type="button" class="btn btn-primary" (click)="headToHead()">Go</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- each match tile  -->
+  <div class="card game-card" id = "game" *ngFor="let game of gameResults">
+    <div class="match-tile">
+      <div class="r-row">
+        <div class="r-column  team-logo ">
+
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+          <div>{{game.hteam}}</div>
+        </div>
+        <div class="r-column align-items-center align-self-center">
+          <div class="score">
+            {{game.hscore}}
+          </div>
+        </div>
+        <div class="r-double-column match-details">
+          <div class="r-row game-location-header">
+           {{game.winner }} beats {{ (game.winner === game.ateam)? game.hteam: game.ateam}}
+          </div>
+          <div class="r-row game-time-header">
+            {{game.date | date}}
+          </div>
+          <div class="r-row game-location-header">
+            <i class="fas fa-map-marker-alt"></i>
+            {{game.venue}}
+          </div>
+        </div>
+        <div class="r-column align-items-center align-self-center">
+          <div class="score">{{game.ascore}}</div>
+        </div>
+        <div class="r-column  team-logo ">
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+          <div>{{game.ateam}}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- end of mach tile -->
+  <div class="card game-card" id="game-small-screen" *ngFor="let game of gameResults | slice:0:3">
+    <div class="match-tile">
+      <div style="display:flex; flex-direction: row;">
+        <div class="r-column  team-logo ">
+
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+          <div>{{game.hteam}}</div>
+        </div>
+        <div class="r-column  team-logo ">
+
+          <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+          <div>{{game.ateam}}</div>
+        </div>
+      </div>
+      <div class="r-row">
+        <div class="r-double-column match-details">
+          <div class="r-row game-location-header">
+            Winner: {{game.winner}}
+          </div>
+          <div class="r-row game-time-header">
+            {{game.date | date}}
+          </div>
+          <div class="r-row game-location-header">
+            {{game.venue}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- game card for small  -->
+  <div class="card game-card" id="game-small-screen" *ngFor="let game of gameResults">
+      <div class="match-tile">
+       <div style="display:flex; flex-direction: row;">
+          <div class="r-column  team-logo ">
+
+              <img style="height: 2rem;" src='assets/img/team-logo/{{game.hteam}}.jpg'>
+              <div>{{game.hteam}}</div>
+            </div>
+            <div class="r-column  team-logo ">
+
+                <img style="height: 2rem;" src='assets/img/team-logo/{{game.ateam}}.jpg'>
+                <div>{{game.ateam}}</div>
+              </div>
+       </div>
+         <div class="r-row">
+            <div class="r-double-column match-details">
+                <div class="r-row game-time-header">
+                 {{game.date}}
+                </div>
+                <div class="r-row game-location-header">
+                  {{game.venue}}
+                </div>
+              </div>
+         </div>
+      </div>
+    </div>
+</div>

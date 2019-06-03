@@ -1,0 +1,49 @@
+
+
+
+.table-head
+{
+font-weight: 500;
+}
+
+.card-title
+{
+  font-size:1rem;
+  margin: 0px;
+}
+.card-category
+{
+  font-size: 0.5rem;
+}
+
+.news-header {
+    font-size: 1.5vw;
+    font-weight: 500;
+   border-bottom: 0.1vw solid ;
+  padding: 1vh 0vw;
+}
+td
+{
+  padding: 0.5rem !important;
+}
+
+h2 {
+  color: #111;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0 0 24px;
+  padding: 0 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.card-header-danger{
+  background: #222D5A;
+}
+.odd{
+  background-color: #fbfbfb;
+}
+tbody{
+  font-size: 0.8rem;
+}
