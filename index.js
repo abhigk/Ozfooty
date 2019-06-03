@@ -1,7 +1,7 @@
 
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const https = require('https');
 var HTMLParser = require('node-html-parser');
 var html2json = require('html2json').html2json;
@@ -151,8 +151,3 @@ app.get("/getTopPlayers", function (req, res) {
 //      }
 //      return true;
 //  }
-
-
-
-
-
