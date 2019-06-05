@@ -4,42 +4,13 @@ const path = require('path');
 const app = express();
 const https = require('https');
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/ozfooty'));
+app.use(express.static(__dirname + '/dist/myapp'));
 
 app.route('/api/cats').get((req, res) => {
   res.send({
     cats: [{ name: 'lilly' }, { name: 'lucy' }],
   })
 });
-
-// app.route('/api/getTopPlayers').get((req, res) => {
-
-//   getPlayers().then(
-//     (d) =>
-//     {
-//       res.send({
-//         cats: [{ name: 'lilly' }, { name: 'lucy' }],
-//       })
-//     }
-//   );
-
-
-// });
-
-
-// app.get("/api/getTopPlayers", function(req, res)
-// {
-//     getPlayers().then(
-//     (d) =>
-//     {
-//       console.log(d);
-//       res.send({
-//         cats: [{ name: 'lilly' }, { name: 'lucy' }],
-//       })
-//     }
-//   );
-// });
-
 
 
 //Api for getting all the users
@@ -102,7 +73,7 @@ app.get("/api/getTopPlayers", function (req, res) {
 
 app.get('/*', function(req,res) {
 
-res.sendFile(path.join(__dirname+'/dist/ozfooty/index.html'));
+res.sendFile(path.join(__dirname+'/dist/myapp/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
