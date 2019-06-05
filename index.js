@@ -6,12 +6,6 @@ const https = require('https');
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/myapp'));
 
-app.route('/api/cats').get((req, res) => {
-  res.send({
-    cats: [{ name: 'lilly' }, { name: 'lucy' }],
-  })
-});
-
 
 //Api for getting all the users
 app.get("/api/getTopPlayers", function (req, res) {

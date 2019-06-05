@@ -417,7 +417,7 @@ export class DataService {
   getTopPlayers() {
     const promise = new Promise(
       (resolve) => {
-        this.httpService.get('http://localhost:3000/getTopPlayers').subscribe(
+        this.httpService.get('http://ozfooty.herokuapp.com/getTopPlayers').subscribe(
           (data) => {
             resolve(data);
           }
