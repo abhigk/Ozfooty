@@ -28,7 +28,7 @@
     "core-js": "^2.5.4",
     "express": "^4.17.1",
     "html2json": "^1.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "morgan": "^1.9.1",
     "ngx-select-dropdown": "^1.0.1",
     "node-html-parser": "^1.1.15",
